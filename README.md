@@ -1,4 +1,3 @@
-# vue2-shop
 # vue-shop-vue2-new
 
 ## Project setup
