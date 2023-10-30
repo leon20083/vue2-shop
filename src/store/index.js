@@ -8,11 +8,15 @@ Vue.config.devtools = true;
 export default new Vuex.Store({
   state: {
     products: [],
+    holodilniki: [],
     cart: [],
   },
   getters: {
     PRODUCTS(state) {
       return state.products;
+    },
+    HOLODILNIKI(state) {
+      return state.holodilniki;
     },
     CART(state) {
       return state.cart;
@@ -20,7 +24,8 @@ export default new Vuex.Store({
   },
   mutations: {
     SET_PRODUCTS_TO_STATE: (state, products) => {
-      state.products = products;
+      state.products = products.morozilniki;
+      state.holodilniki = products.holodilniki;
     },
     SET_CART: (state, product) => {
       if (state.cart.length) {
@@ -44,7 +49,7 @@ export default new Vuex.Store({
   },
   actions: {
     GET_PRODUCTS_FROM_API({ commit }) {
-      return axios("http://localhost:3000/morozilniki", {
+      return axios("http://localhost:3000/data", {
         method: "GET",
       })
         .then((products) => {
